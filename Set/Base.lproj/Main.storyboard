@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Set" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nPm-sa-jK0">
+                                <rect key="frame" x="16" y="748" width="75" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="New Game"/>
+                                <connections>
+                                    <action selector="newGameButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IW6-fI-DZO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgl-c6-J9l">
+                                <rect key="frame" x="315" y="748" width="44" height="30"/>
+                                <state key="normal" title="Deal 3"/>
+                                <connections>
+                                    <action selector="dealThreeButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ovw-A5-DZV"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5C-hn-cMV">
+                                <rect key="frame" x="155.66666666666666" y="717.66666666666663" width="64" height="20.333333333333371"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view opaque="NO" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="PD8-yU-YeA" customClass="GridView" customModule="Set" customModuleProvider="target">
+                                <rect key="frame" x="16" y="44" width="343" height="650"/>
+                                <color key="backgroundColor" red="1" green="0.61500106529999998" blue="0.2365489177" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="nPm-sa-jK0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="8BD-dP-sFT"/>
+                            <constraint firstItem="PD8-yU-YeA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="8vf-RK-OEW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="N5C-hn-cMV" secondAttribute="bottom" constant="40" id="D4C-lG-5cv"/>
+                            <constraint firstItem="fgl-c6-J9l" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="nPm-sa-jK0" secondAttribute="trailing" constant="100" id="NsN-jE-Sqm"/>
+                            <constraint firstItem="PD8-yU-YeA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="biL-pI-5eQ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fgl-c6-J9l" secondAttribute="trailing" constant="16" id="h47-Or-kb3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fgl-c6-J9l" secondAttribute="bottom" id="hBK-ov-Gbg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="nPm-sa-jK0" secondAttribute="bottom" id="haa-eT-z78"/>
+                            <constraint firstItem="N5C-hn-cMV" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="oo4-TW-Mpg"/>
+                            <constraint firstItem="N5C-hn-cMV" firstAttribute="top" secondItem="PD8-yU-YeA" secondAttribute="bottom" constant="23.666666666666629" id="sQO-73-GjL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="PD8-yU-YeA" secondAttribute="trailing" constant="16" id="zee-LQ-4iO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="dealThreeMoreButton" destination="fgl-c6-J9l" id="AUh-gg-UrJ"/>
+                        <outlet property="gridView" destination="PD8-yU-YeA" id="d4B-np-Ytu"/>
+                        <outlet property="scoreLabel" destination="N5C-hn-cMV" id="HU6-ud-0FK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-98.400000000000006" y="118.22660098522168"/>
+        </scene>
+    </scenes>
+</document>
