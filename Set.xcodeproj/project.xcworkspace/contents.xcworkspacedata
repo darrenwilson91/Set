@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Set.xcodeproj">
+      location = "group:/Users/darrenwilson/Developer/Set/Set/SetThemeChooserViewController.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/darrenwilson/Developer/Set/Set/ViewController.swift">
+   </FileRef>
+   <FileRef
+      location = "self:">
    </FileRef>
 </Workspace>

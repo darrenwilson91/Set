@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SetGameViewController.swift
 //  Set
 //
 //  Created by Darren Wilson on 17/06/2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class SetGameViewController: UIViewController {
     
     var setGame = SetGame()
     var cardViewMap = [SetCardView: Card]() {

@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A724EAB920E16DF10065BB42 /* SetThemeChooserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A724EAB820E16DF10065BB42 /* SetThemeChooserViewController.swift */; };
 		A74D39FA20DC129900DFD856 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74D39F920DC129900DFD856 /* Grid.swift */; };
 		A74D39FC20DC139B00DFD856 /* SetCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74D39FB20DC139B00DFD856 /* SetCardView.swift */; };
 		A74D39FE20DC163700DFD856 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A74D39FD20DC163700DFD856 /* GridView.swift */; };
 		A7790F2C20D65F1B00C10D9C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7790F2B20D65F1B00C10D9C /* AppDelegate.swift */; };
-		A7790F2E20D65F1B00C10D9C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7790F2D20D65F1B00C10D9C /* ViewController.swift */; };
+		A7790F2E20D65F1B00C10D9C /* SetGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7790F2D20D65F1B00C10D9C /* SetGameViewController.swift */; };
 		A7790F3120D65F1B00C10D9C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7790F2F20D65F1B00C10D9C /* Main.storyboard */; };
 		A7790F3320D65F1B00C10D9C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7790F3220D65F1B00C10D9C /* Assets.xcassets */; };
 		A7790F3620D65F1B00C10D9C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7790F3420D65F1B00C10D9C /* LaunchScreen.storyboard */; };
@@ -20,12 +21,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A724EAB820E16DF10065BB42 /* SetThemeChooserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SetThemeChooserViewController.swift; path = /Users/darrenwilson/Developer/Set/Set/SetThemeChooserViewController.swift; sourceTree = "<absolute>"; };
 		A74D39F920DC129900DFD856 /* Grid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
 		A74D39FB20DC139B00DFD856 /* SetCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetCardView.swift; sourceTree = "<group>"; };
 		A74D39FD20DC163700DFD856 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		A7790F2820D65F1A00C10D9C /* Set.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Set.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7790F2B20D65F1B00C10D9C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A7790F2D20D65F1B00C10D9C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A7790F2D20D65F1B00C10D9C /* SetGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetGameViewController.swift; sourceTree = "<group>"; };
 		A7790F3020D65F1B00C10D9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A7790F3220D65F1B00C10D9C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A7790F3520D65F1B00C10D9C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -64,9 +66,10 @@
 		A7790F2A20D65F1A00C10D9C /* Set */ = {
 			isa = PBXGroup;
 			children = (
+				A724EAB820E16DF10065BB42 /* SetThemeChooserViewController.swift */,
 				A74D39F920DC129900DFD856 /* Grid.swift */,
 				A7790F3D20D65F3600C10D9C /* Supporting Files */,
-				A7790F2D20D65F1B00C10D9C /* ViewController.swift */,
+				A7790F2D20D65F1B00C10D9C /* SetGameViewController.swift */,
 				A74D39FD20DC163700DFD856 /* GridView.swift */,
 				A7790F2F20D65F1B00C10D9C /* Main.storyboard */,
 				A7790F3E20D6669F00C10D9C /* SetGame.swift */,
@@ -159,13 +162,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7790F2E20D65F1B00C10D9C /* ViewController.swift in Sources */,
+				A7790F2E20D65F1B00C10D9C /* SetGameViewController.swift in Sources */,
 				A74D39FC20DC139B00DFD856 /* SetCardView.swift in Sources */,
 				A7790F2C20D65F1B00C10D9C /* AppDelegate.swift in Sources */,
 				A74D39FE20DC163700DFD856 /* GridView.swift in Sources */,
 				A7790F3F20D6669F00C10D9C /* SetGame.swift in Sources */,
 				A74D39FA20DC129900DFD856 /* Grid.swift in Sources */,
 				A7790F4120D666C800C10D9C /* Card.swift in Sources */,
+				A724EAB920E16DF10065BB42 /* SetThemeChooserViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
