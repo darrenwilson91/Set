@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="30f-yU-QKg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gnd-Tk-Wu6">
     <device id="ipad9_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -72,10 +72,45 @@
             </objects>
             <point key="canvasLocation" x="-1244" y="-993"/>
         </scene>
-        <!--Split View Controller-->
+        <!--Item 2-->
+        <scene sceneID="eU5-AR-SXe">
+            <objects>
+                <viewController id="gzY-iq-HOq" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Bq4-rG-BrZ">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="eRj-MV-Ocb"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="Rka-eL-tUM"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="17b-ou-amf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2936" y="209"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Tlm-ax-AYE">
+            <objects>
+                <tabBarController id="gnd-Tk-Wu6" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xaT-5r-7ns">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="30f-yU-QKg" kind="relationship" relationship="viewControllers" id="zg4-gQ-iy3"/>
+                        <segue destination="gzY-iq-HOq" kind="relationship" relationship="viewControllers" id="9Z9-fX-JBR"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mCQ-UU-bTY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4003" y="-778"/>
+        </scene>
+        <!--Set-->
         <scene sceneID="kRw-2L-e2N">
             <objects>
-                <splitViewController id="30f-yU-QKg" sceneMemberID="viewController">
+                <splitViewController title="Set" id="30f-yU-QKg" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Set Game" id="aoB-D5-3d1"/>
                     <connections>
                         <segue destination="FLZ-6x-t0t" kind="relationship" relationship="masterViewController" id="rIa-ic-35q"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="detailViewController" id="IT0-FM-D82"/>
@@ -94,7 +129,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nPm-sa-jK0">
-                                <rect key="frame" x="16" y="994" width="75" height="30"/>
+                                <rect key="frame" x="16" y="945" width="75" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="New Game"/>
                                 <connections>
@@ -102,20 +137,20 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgl-c6-J9l">
-                                <rect key="frame" x="708" y="994" width="44" height="30"/>
+                                <rect key="frame" x="708" y="945" width="44" height="30"/>
                                 <state key="normal" title="Deal 3"/>
                                 <connections>
                                     <action selector="dealThreeButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ovw-A5-DZV"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5C-hn-cMV">
-                                <rect key="frame" x="352" y="963.5" width="64" height="20.5"/>
+                                <rect key="frame" x="352" y="914.5" width="64" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view opaque="NO" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="PD8-yU-YeA" customClass="GridView" customModule="Set" customModuleProvider="target">
-                                <rect key="frame" x="16" y="20" width="736" height="920"/>
+                                <rect key="frame" x="16" y="20" width="736" height="871"/>
                                 <color key="backgroundColor" red="1" green="0.61500106529999998" blue="0.2365489177" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
