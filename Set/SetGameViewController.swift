@@ -28,7 +28,11 @@ class SetGameViewController: UIViewController {
             
         }
     }
-    let theme = Theme.normal
+    var theme = Theme.normal {
+        didSet {
+            updateViewFromModel()
+        }
+    }
 
     @IBOutlet weak var gridView: GridView! {
         didSet {
@@ -82,24 +86,26 @@ class SetGameViewController: UIViewController {
     }
     
     private func updateViewFromModel() {
-        // Remove any cardButtonMappings for Cards that have been removed from play
-        cardViewMap = cardViewMap.filter { setGame.cardsInPlay.contains($0.value) }
-        
-        for card in setGame.cardsInPlay {
-            if !cardViewMap.values.contains(card) {
-                cardViewMap[cardViewForCard(card: card)] = card
+        if gridView != nil, scoreLabel != nil {
+            // Remove any cardButtonMappings for Cards that have been removed from play
+            cardViewMap = cardViewMap.filter { setGame.cardsInPlay.contains($0.value) }
+            
+            for card in setGame.cardsInPlay {
+                if !cardViewMap.values.contains(card) {
+                    cardViewMap[cardViewForCard(card: card)] = card
+                }
             }
+            
+            if !setGame.cardsLeftInDeck {
+                dealThreeMoreButton.isHidden = true
+            } else {
+                dealThreeMoreButton.isHidden = false
+            }
+            
+            scoreLabel.text = "Score: \(setGame.score)"
+            
+            drawCardViews()
         }
-        
-        if !setGame.cardsLeftInDeck {
-            dealThreeMoreButton.isHidden = true
-        } else {
-            dealThreeMoreButton.isHidden = false
-        }
-        
-        scoreLabel.text = "Score: \(setGame.score)"
-        
-        drawCardViews()
     }
     
     func drawCardViews() {
