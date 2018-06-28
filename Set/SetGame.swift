@@ -69,7 +69,7 @@ class SetGame {
                 dealThreeMoreCards()
                 selectedCards.append(card)
             } else if selectedCards.count == 3 && !selectedCardsAreASet {
-                selectedCards.removeAll()
+                deselectAllCards()
                 selectedCards.append(card)
             }
             
@@ -78,8 +78,14 @@ class SetGame {
     }
     
     func deselectCard(card: Card) {
-        if selectedCards.count != 3 {
+        if selectedCards.count > 0 {
             selectedCards = selectedCards.filter { $0 != card }
+        }
+    }
+    
+    func deselectAllCards() {
+        for selectedCard in selectedCards {
+            deselectCard(card: selectedCard)
         }
     }
     
@@ -89,6 +95,10 @@ class SetGame {
     
     func cardIsPartOfInvalidSetSelection(card: Card) -> Bool {
         return !selectedCardsAreASet && selectedCards.count == 3 && selectedCards.contains(card) ? true : false
+    }
+    
+    func cardIsSelected(card: Card) -> Bool {
+        return selectedCards.contains(card)
     }
     
     private func calculateScoreForSelectedCards() {

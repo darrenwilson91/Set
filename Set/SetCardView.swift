@@ -11,16 +11,15 @@ import UIKit
 class SetCardView: UIView {
 
     var symbol: CardSymbol = .squiggle
+
+    //let cardBackColor: UIColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
     var shading: CardShading = .fill
+    var displayCardFace = false
     @IBInspectable
     var symbolCount: Int = 1
     @IBInspectable
     var symbolColor: UIColor = #colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)
-    var cardBackgroundColor: CGColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1) {
-        didSet {
-            layer.backgroundColor = cardBackgroundColor
-        }
-    }
+    //var cardBackgroundColor: UIColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     var borderColor: CGColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1) {
         didSet {
             layer.borderColor = borderColor
@@ -32,9 +31,9 @@ class SetCardView: UIView {
         layer.masksToBounds = true
         layer.borderWidth = 3
         
-        
-        
-        drawCardSymbols()
+        if displayCardFace {
+            drawCardSymbols()
+        }
     }
     
     private func drawCardSymbols() {

@@ -117,12 +117,21 @@ class SetGameViewController: UIViewController {
             let cardBorderColor: CGColor = setGame.selectedCards.contains(card) ? #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1) : #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
             cardView.borderColor = cardBorderColor
             
-            if setGame.cardIsPartOfValidSetSelection(card: card) {
-                cardView.backgroundColor = #colorLiteral(red: 0.7570295457, green: 0.9813225865, blue: 0.8112249367, alpha: 1)
-            } else if setGame.cardIsPartOfInvalidSetSelection(card: card) {
-                cardView.backgroundColor = #colorLiteral(red: 0.9813225865, green: 0.6666741573, blue: 0.7235357409, alpha: 1)
+            //TODO: Need to figure out here how to avoid setting backgroundColor directly
+            if setGame.cardIsSelected(card: card) {
+                cardView.displayCardFace = true
+                
+                if setGame.cardIsPartOfValidSetSelection(card: card) {
+                    cardView.backgroundColor = #colorLiteral(red: 0.7570295457, green: 0.9813225865, blue: 0.8112249367, alpha: 1)
+                    
+                } else if setGame.cardIsPartOfInvalidSetSelection(card: card) {
+                    cardView.backgroundColor = #colorLiteral(red: 0.9813225865, green: 0.6666741573, blue: 0.7235357409, alpha: 1)
+                } else {
+                    cardView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                }
             } else {
-                cardView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                cardView.displayCardFace = false
+                cardView.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
             }
             
             cardView.setNeedsDisplay()
@@ -158,7 +167,7 @@ class SetGameViewController: UIViewController {
         }
         
         cardView.symbolColor = theme.cardColors[card.color]
-        cardView.backgroundColor = theme.cardBackgroundColor
+        //cardView.backgroundColor = theme.cardBackgroundColor
     }
     
     func cardViewForCard(card: Card) -> SetCardView {
