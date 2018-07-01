@@ -10,7 +10,7 @@ import UIKit
 
 class GridView: UIView {
     
-    lazy var grid = Grid(layout: Grid.Layout.aspectRatio(SizeRatio.cardAspectRatio), frame: bounds)
+    lazy var grid = Grid(layout: Grid.Layout.aspectRatio(SizeRatio.cardAspectRatio), frame: frame)
     
     var cardViews = [SetCardView]() {
         didSet {
@@ -22,21 +22,23 @@ class GridView: UIView {
             
             for newCardView in cardViews.filter({ !oldValue.contains($0) }) {
                 newCardView.contentMode = UIViewContentMode.redraw
-                addSubview(newCardView)
+                //addSubview(newCardView)
             }
             
             setNeedsDisplay()
             setNeedsLayout()
         }
     }
-
-    override func draw(_ rect: CGRect) {
-        grid.frame = bounds
-        for index in cardViews.indices {
-            if let cardViewBounds = grid[index] {
-                cardViews[index].frame = CGRect(x: cardViewBounds.origin.x, y: cardViewBounds.origin.y, width: cardViewBounds.width - horizontalMarginWidth, height: cardViewBounds.height - verticalMarginHeight)
-            }
+    
+    func frameForCardView(cardView: SetCardView) -> CGRect? {
+        if let indexOfCardView = cardViews.index(of: cardView), let cardViewBounds = grid[indexOfCardView] {
+            return CGRect(x: cardViewBounds.origin.x,
+                          y: cardViewBounds.origin.y,
+                          width: cardViewBounds.width - horizontalMarginWidth,
+                          height: cardViewBounds.height - verticalMarginHeight)
         }
+        
+        return nil
     }
     
     func addCardView(cardView: SetCardView) {
@@ -47,6 +49,10 @@ class GridView: UIView {
         if let indexOfCardToBeRemoved = cardViews.index(of: cardView) {
             cardViews.remove(at: indexOfCardToBeRemoved)
         }
+    }
+    
+    func updateGridPositions() {
+        grid.frame = frame
     }
 
 }

@@ -14,7 +14,7 @@ class SetCardView: UIView {
 
     //let cardBackColor: UIColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
     var shading: CardShading = .fill
-    var displayCardFace = false
+    var isFaceUp = false
     @IBInspectable
     var symbolCount: Int = 1
     @IBInspectable
@@ -31,7 +31,7 @@ class SetCardView: UIView {
         layer.masksToBounds = true
         layer.borderWidth = 3
         
-        if displayCardFace {
+        if isFaceUp {
             drawCardSymbols()
         }
     }
