@@ -34,6 +34,8 @@ class SetGameViewController: UIViewController {
         }
     }
 
+    @IBOutlet weak var deck: SetCardView!
+    
     @IBOutlet weak var gridView: GridView! {
         didSet {
             let swipe = UISwipeGestureRecognizer(target: self, action: #selector(handleSwipeDown))
@@ -55,6 +57,13 @@ class SetGameViewController: UIViewController {
     }
     @IBOutlet weak var dealThreeMoreButton: UIButton!
     
+    override func viewDidLoad() {
+        let deckTap = UITapGestureRecognizer(target: self, action: #selector(deckPressed))
+        deckTap.numberOfTapsRequired = 1
+        deckTap.numberOfTouchesRequired = 1
+        deck.addGestureRecognizer(deckTap)
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         gridView.updateGridPositions()
@@ -71,7 +80,7 @@ class SetGameViewController: UIViewController {
         updateViewFromModel()
     }
     
-    @IBAction func dealThreeButtonPressed(_ sender: UIButton) {
+    @objc func deckPressed(_ sender: UIButton) {
         setGame.dealThreeMoreCards()
         updateViewFromModel()
     }
@@ -98,7 +107,8 @@ class SetGameViewController: UIViewController {
                 view.addSubview(newCardView)
                 
                 //TODO: One at a time, fly each card from the deck to its position. Maybe add card to gridView as subview in animation finish?
-                newCardView.frame = scoreLabel.frame
+                newCardView.frame = deck.frame
+                newCardView.isUserInteractionEnabled = false
             }
             
             var newCardViewsIndex = 0
@@ -110,7 +120,7 @@ class SetGameViewController: UIViewController {
                                                                        delay: 0,
                                                                        options: [UIViewAnimationOptions.curveEaseInOut],
                                                                        animations: { newCardView.frame = gridFrameForNewCardView},
-                                                                       completion: { if $0 == .end { } })
+                                                                       completion: { if $0 == .end { newCardView.isUserInteractionEnabled = true } })
                         //newCardViews.removeFirst()
                     }
                     newCardViewsIndex += 1
@@ -122,9 +132,9 @@ class SetGameViewController: UIViewController {
             cardDealerTimer.fire()
             
             if !setGame.cardsLeftInDeck {
-                dealThreeMoreButton.isHidden = true
+                deck.isHidden = true
             } else {
-                dealThreeMoreButton.isHidden = false
+                deck.isHidden = false
             }
             
             scoreLabel.text = "Score: \(setGame.score)"
